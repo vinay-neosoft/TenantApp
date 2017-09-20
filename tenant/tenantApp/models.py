@@ -49,7 +49,7 @@ class Tenant(models.Model):
                                max_length=200, null=False, blank=False)
 
     def __unicode__(self):
-        return self.name
+        return self.tenant_name
 
 class Request(models.Model):
 

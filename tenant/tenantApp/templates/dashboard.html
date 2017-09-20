@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load staticfiles %}
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Tenants App</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{% static 'tenantApp/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'tenantApp/css/sb-admin-2.min.css' %}" rel="stylesheet">
+    <link href="{% static 'tenantApp/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Dashboard</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-red">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="text-center">
+                                <div><b>{% trans 'Questions' %}</b></div>
+                                <div class="huge">{{total_questions_count}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-green">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="text-center">
+                                <div><b>{% trans 'Answers' %}</b></div>
+                                <div class="huge">{{total_answers_count}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="panel panel-yellow">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="text-center">
+                                <div><b>{% trans 'Users' %}</b></div>
+                                <div class="huge">{{total_users_count}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>{% trans 'Tenant' %}</th>
+                                    <th>{% trans 'Total Requests' %} </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for tenant in tenants %}
+                                <tr>
+                                    <td>{{forloop.counter}}</td>
+                                    <td>{{tenant}}</td>
+                                    <td>{{tenant.requests.all.count}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </body>
+</html>
