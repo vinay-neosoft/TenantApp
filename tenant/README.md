@@ -29,7 +29,7 @@ After successfull execution of above command, run the migrate command using *Pyt
 
 **Load Dummy Data** 
 
-After all the above steps are successfully executed then Load dummy data using *python manage.py initdata*.
+After all the above steps are successfully executed then Load dummy data using *python manage.py initUserData*.
 
 **Run the Server** 
 
@@ -48,9 +48,9 @@ To start the server, use command *Python manage.py runserver*
 **apis**
 
 * get access token
-     * url - /api-token-auth/ 
-     * method - POST
-     * params - username, password 
+    * url - /api-token-auth/ 
+    * method - POST
+    * params - username, password 
 
 * get questions
     * url - /api/questions
