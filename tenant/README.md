@@ -1,22 +1,41 @@
-**Python test**
+**Tenants Application**
 
 **Steps to run the application**
 
-**Virtual Environment :**  Create virtual environment using command *virtualenv python_tenant_env*
+**Set up Virtual Environment**  
 
-**Activate Environment :** activate the virtual environment *source python_tenant_env/bin/activate*
+Check whether virtualenv is installed. If virtualenv is not installed then install virtualenv using command *pip install virtualenv*
 
-**Requirements.** install the requirements in virtual env using *pip install -r docs/requirements.txt*
+After installing virtualenv, create virtual environment using command *virtualenv python_tenant_env*
 
-**Make Migrations** *Python manage.py makemigrations*
+**Activate Virtual Environment** 
 
-**Migrate** *Python manage.py migrate*
+To activate the virtual environment, you need to change directory to python_tenant_env/bin using command *cd python_tenant_env/bin*
 
-**Load Dummy Data** Load dummy data using *python manage.py initdata* .
+After changing directory, activate virtual environment using command *source activate*
 
-**Run the Server** *Python manage.py runserver* 
+**Install Packages** 
 
-**Demo accounts**
+Make sure virtual environment is activated before installing packages.
+Install the packages in virtual environment using *pip install -r docs/requirements.txt*
+
+**Make Migrations** 
+
+After installing all the packages successfully, Create migration using command *Python manage.py makemigrations*
+
+**Migrate** 
+
+After successfull execution of above command, run the migrate command using *Python manage.py migrate*
+
+**Load Dummy Data** 
+
+After all the above steps are successfully executed then Load dummy data using *python manage.py initdata*.
+
+**Run the Server** 
+
+To start the server, use command *Python manage.py runserver* 
+
+**Demo accounts data**
 
 * username - simon, password - password_simon
 * username - samson, password - password_samson
@@ -34,7 +53,7 @@
      * params - username, password 
 
 * get questions
-    * url - /questions
+    * url - /api/questions
     * method - GET
     * headers - token, api-key
     * params - q (optional)
