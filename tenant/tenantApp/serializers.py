@@ -7,11 +7,11 @@ class AnswerSerializer(serializers.ModelSerializer):
 	user = serializers.SerializerMethodField()
 
 	def get_user(self, obj):
-		return obj.user.username
+		return obj.user_id.username
 
 	class Meta:
 		model = Answer
-		fields = ('body', 'user')
+		fields = ('answer_body', 'user')
 
 class QuestionSerializer(serializers.ModelSerializer):
 
@@ -19,4 +19,4 @@ class QuestionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Question
-        fields = ('id', 'title', 'answers')
+        fields = ('id', 'question_title', 'answers')
